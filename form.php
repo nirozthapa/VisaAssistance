@@ -32,6 +32,7 @@ $categories = $categoryObj->getActiveCategories();
 <body>
 <!-- ======= Header ======= -->
 <?php require_once 'includes/header.php'?>
+
 <!-- ======= Intro Section ======= -->
 <!-- ======= Intro Section ======= -->
       <!--Intro Banner-->
@@ -81,6 +82,9 @@ if(isset($_GET['category_id']) && $_GET['category_id'] > 0)
     </div>
 
     </section>
+
+<?php require_once 'includes/footer.php'?>
+
 
 </body>
 </html>

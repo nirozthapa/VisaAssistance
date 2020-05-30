@@ -2,8 +2,8 @@
 require_once "../classes/Database.php";
 include "../classes/Insertion.php";
 
-//$insertObj = new Insertion();
-//$insertObj = $insertObj->insertSubscriptions();
+$insertObj = new Insertion();
+
 
 
 if(isset($_POST['email']) && !empty($_POST['email'])){
@@ -13,6 +13,7 @@ if(isset($_POST['email']) && !empty($_POST['email'])){
   $message =  isset($_POST['message'])? $_POST['message'] : '';
   $headers = 'From: noreply@nirojinc.com';
   mail($to_email,$subject,$message,$headers);
+  $insertObj = $insertObj->insertQuery($name,$to_email,$subject,$message);
   echo "Message sent successfully";
 
 

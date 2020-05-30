@@ -12,13 +12,28 @@ class Insertion extends Database
 
     }
 
-    function insertSubscriptions(){
-        $sql = "INSERT INTO Subscriptions (Name , Email, PhoneNumber)
-         VALUES ('John', 'hello@example.com',123)";
-        $statement = $this->connection->query($sql);
-        $categories = $statement->execute();
+    function insertQuery($name,$email,$subject,$message){
+        $data = [
+            'CustomerName' => $name,
+            'Email' => $email,
+            'Subject' => $subject,
+            'Message' => $message,
+        ];
 
-        return $categories;
+        $query = "INSERT INTO CustomerQuery (CustomerName,Email,Subject,Message)
+         VALUES (:CustomerName,:Email,:Subject,:Message)";
+        $stmt= $this->connection->prepare($query);
+        $stmt->execute($data);
     }
 
+    function insertSubscriptions($email){
+        $data = [
+            'Email' => $email,
+        ];
+
+        $query = "INSERT INTO Suscribers (CustomerEmail,)
+         VALUES (:CustomerEmail)";
+        $stmt= $this->connection->prepare($query);
+        $stmt->execute($data);
+    }
 }
