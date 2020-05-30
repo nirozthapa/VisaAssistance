@@ -1,3 +1,10 @@
+<?php
+require_once "classes/Database.php";
+require_once "classes/Category.php";
+require_once "classes/Question.php";
+require_once "classes/AnswerOption.php";
+
+?>
 <!-- ======= Footer ======= -->
 <footer id="footer">
     <div class="footer-top">
@@ -43,8 +50,8 @@
                 <div class="col-lg-3 col-md-6 footer-newsletter">
                     <h4>Our Newsletter</h4>
                     <p></p>
-                    <form action="forms/contact.php" method="post">
-                        <input type="email" name="email"><input type="submit" value="Subscribe" onclick="">
+                    <form action="forms/subscription.php" method="post">
+                        <input type="email" name="email"><input type="submit" value="Subscribe">
 
                     </form>
                 </div>

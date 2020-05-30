@@ -1,8 +1,16 @@
 <?php
 
+require_once "../classes/Database.php";
+
+
+if(isset($_POST['email']) && !empty($_POST['email'])) {
+    echo "caught post";
+    $name =  isset($_POST['email'])? $_POST['email'] : '';
+
+}
+
 class Insertion extends Database
 {
-
     /**
      * Insertion constructor.
      */
@@ -11,6 +19,7 @@ class Insertion extends Database
         parent::__construct();
 
     }
+
 
     function insertQuery($name,$email,$subject,$message){
         $data = [
@@ -28,10 +37,10 @@ class Insertion extends Database
 
     function insertSubscriptions($email){
         $data = [
-            'Email' => $email,
+            'CustomerEmail' => $email,
         ];
 
-        $query = "INSERT INTO Suscribers (CustomerEmail,)
+        $query = "INSERT INTO Suscribers (CustomerEmail)
          VALUES (:CustomerEmail)";
         $stmt= $this->connection->prepare($query);
         $stmt->execute($data);
