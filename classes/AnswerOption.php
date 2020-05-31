@@ -26,4 +26,12 @@ class AnswerOption extends Database
 
         return $questionOptions;
     }
+
+    function getAnswerWeightFromAnswerID($answerId){
+        $sql = "SELECT answer_weight FROM answer_options WHERE id = $answerId";
+        $statement = $this->connection->query($sql);
+        $answerWeight = $statement->fetch();
+
+        return $answerWeight;
+    }
 }

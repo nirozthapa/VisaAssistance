@@ -69,9 +69,14 @@ if(isset($_GET['category_id']) && $_GET['category_id'] > 0)
             <input type="<?php echo  $question['html_form_option']; ?>" name="answer_id_<?php echo $question['id'];?>">
             <?php
             echo " &nbsp;&nbsp;&nbsp;&nbsp;". $j++.".  ". $option['answer_option']." <br/>";
-        }
 
-        echo "<br /> <br />";
+        }
+        ?>
+       <label for="fname">Score:</label><br>
+        <input type="text" id="fname" name="fname" value=10><br>
+        <?php
+        ?>
+        <?
 
     }
     ?>
