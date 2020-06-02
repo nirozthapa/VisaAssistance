@@ -6,9 +6,16 @@ require_once "classes/AnswerOption.php";
 
 $categoryObj = new Category();
 $categories = $categoryObj->getActiveCategories();
+
+$totalWeight = 0;
+
+if(isset($_POST['btnSubmit']))
+{
+    $totalWeight =  array_sum($_POST['answer_weight']);
+}
 ?>
 
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -56,7 +63,14 @@ if(isset($_GET['category_id']) && $_GET['category_id'] > 0)
     $questions = $questionObj->getActiveQuestionsByCategoryId($categoryId);
 
     $answerOptionObj =  new AnswerOption();
+    ?>
 
+    <div style="font-size: 20px; color: #1b1e21">
+    Total Score : <?php echo $totalWeight; ?>
+    </div>
+
+    <form method="post" action="">
+    <?php
     $i = 1;
     foreach($questions as $question)
     {
@@ -66,29 +80,45 @@ if(isset($_GET['category_id']) && $_GET['category_id'] > 0)
         $j =1 ;
         foreach($options as $option)
         {?>
-            <input type="<?php echo  $question['html_form_option']; ?>" name="answer_id_<?php echo $question['id'];?>">
+            <input type="<?php echo  $question['html_form_option']; ?>"
+                   name="answer_id_<?php echo $question['id'];?>"
+                   data-answer_weight="<?php echo $option['answer_weight']?>"
+                   data-question_id="<?php echo  $question['id'];?>"
+                   class="options" />
             <?php
             echo " &nbsp;&nbsp;&nbsp;&nbsp;". $j++.".  ". $option['answer_option']." <br/>";
 
         }
         ?>
        <label for="fname">Score:</label><br>
-        <input type="text" id="fname" name="fname" value=10><br>
+        <input type="text" readonly id="<?php echo $question['id'];?>"  name="answer_weight[]" value=""><br>
         <?php
         ?>
         <?
-
     }
     ?>
+        <input type="submit" name="btnSubmit" value="Submit" />
+    </form>
     <?php
 }
-
 ?>
     </div>
 
     </section>
 
 <?php require_once 'includes/footer.php'?>
+<script type="application/javascript">
+    $( document ).ready(function() {
+
+        //
+        $('.options').on('click',function(){
+            var weight = $(this).attr('data-answer_weight');
+            var question_id =  $(this).attr('data-question_id');
+            $('#'+question_id).val(weight);
+        });
+
+    });
+</script>
 
 
 </body>
