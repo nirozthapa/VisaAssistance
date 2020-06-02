@@ -65,7 +65,7 @@ if(isset($_GET['category_id']) && $_GET['category_id'] > 0)
     $answerOptionObj =  new AnswerOption();
     ?>
 
-    <div style="font-size: 20px; color: #1b1e21">
+    <div style="font-size: 20px; color: #FF0000">
     Total Score : <?php echo $totalWeight; ?>
     </div>
 
