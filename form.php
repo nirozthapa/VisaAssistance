@@ -65,9 +65,16 @@ if(isset($_GET['category_id']) && $_GET['category_id'] > 0)
     $answerOptionObj =  new AnswerOption();
     ?>
 
-    <div style="font-size: 20px; color: #FF0000">
-    Total Score : <?php echo $totalWeight; ?>
-    </div>
+    <?php
+    if(isset($_GET['category_id']) && $_GET['category_id'] > 4)
+    {
+        ?>
+        <div style="font-size: 20px; color: #FF0000">
+            Total Score : <?php echo $totalWeight; ?>
+        </div>
+        <?php
+    }
+    ?>
 
     <form method="post" action="">
     <?php
@@ -97,7 +104,14 @@ if(isset($_GET['category_id']) && $_GET['category_id'] > 0)
         <?
     }
     ?>
-        <input type="submit" name="btnSubmit" value="Submit" />
+        <?php
+        if(isset($_GET['category_id']) && $_GET['category_id'] > 4)
+        {
+            ?>
+            <input type="submit" name="btnSubmit" value="Submit" />
+            <?php
+        }
+        ?>
     </form>
     <?php
 }
