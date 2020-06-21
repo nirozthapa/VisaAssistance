@@ -11,17 +11,16 @@ if(isset($_POST['email']) && !empty($_POST['email'])){
   $to_email =  isset($_POST['email'])? $_POST['email'] : '';
   $subject =  isset($_POST['subject'])? $_POST['subject'] : '';
   $message =  isset($_POST['message'])? $_POST['message'] : '';
-  $headers = 'From: noreply@nirojinc.com';
+  $headers = 'From: noreply@VisaAssist.com';
   mail($to_email,$subject,$message,$headers);
   $insertObj = $insertObj->insertQuery($name,$to_email,$subject,$message);
   echo "Message sent successfully";
 
 
-
-
 }
 else
 {
-  die('UNABLE TO SEND THE EMAIL.');
+  echo "Message Not sent";
+
 }
 ?>

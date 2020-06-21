@@ -4,7 +4,6 @@ require_once "../classes/Database.php";
 
 
 if(isset($_POST['email']) && !empty($_POST['email'])) {
-    echo "caught post";
     $name =  isset($_POST['email'])? $_POST['email'] : '';
 
 }

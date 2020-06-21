@@ -51,7 +51,7 @@ require_once "classes/AnswerOption.php";
                     <h4>Our Newsletter</h4>
                     <p></p>
                     <form action="forms/subscription.php" method="post">
-                        <input type="email" name="email"><input type="submit" value="Subscribe">
+                        <input type="email" name="email"><input type="submit" value="Subscribe" class="options">
 
                     </form>
                 </div>

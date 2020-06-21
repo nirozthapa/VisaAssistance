@@ -35,10 +35,10 @@ if(isset($_POST['btnSubmit']))
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
 </head>
-
+<?php require_once 'includes/header.php'?>
 <body>
 <!-- ======= Header ======= -->
-<?php require_once 'includes/header.php'?>
+
 
 <!-- ======= Intro Section ======= -->
 <!-- ======= Intro Section ======= -->
@@ -66,7 +66,7 @@ if(isset($_GET['category_id']) && $_GET['category_id'] > 0)
     ?>
 
     <?php
-    if(isset($_GET['category_id']) && $_GET['category_id'] > 4)
+    if(isset($_GET['category_id']) && $_GET['category_id'] == 5)
     {
         ?>
         <div style="font-size: 20px; color: #FF0000">
@@ -105,7 +105,7 @@ if(isset($_GET['category_id']) && $_GET['category_id'] > 0)
     }
     ?>
         <?php
-        if(isset($_GET['category_id']) && $_GET['category_id'] > 4)
+        if(isset($_GET['category_id']) && $_GET['category_id'] == 5)
         {
             ?>
             <input type="submit" name="btnSubmit" value="Submit" />

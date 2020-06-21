@@ -16,6 +16,6 @@ if(isset($_POST['email']) && !empty($_POST['email'])){
 }
 else
 {
-    die('unable to suscribe.');
+    echo ("unable to suscribe.");
 }
 ?>
